@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Simple Music Player</title>
+<!-- Load FontAwesome icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+<!-- Bootstrap CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<!-- Load the custom CSS style file -->
+<link rel="stylesheet" type="text/css" href="musicpg.css">
+</head>
+<body>
+
+	<!-- Define the navbar and the side navbar for options -->
+	<div id="mySidenav" class="sidebar">
+		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+		<a href="#"><i class="fa fa-fw fa-home"></i>About</a>
+		<a href="#services"><i class="fa fa-fw fa-wrench"></i> Services</a>
+		<a href="#clients"><i class="fa fa-fw fa-user"></i> Clients</a>
+		<a href="#contact"><i class="fa fa-fw fa-envelope"></i> Contact</a>
+	  </div>
+	  <div class="opennav">
+	   <span style="font-size:30px;cursor:pointer;width:20px ;" onclick="openNav()">&#9776; DJBUZZ</span>
+	   <input style="position: relative; float: right;" type="text" placeholder="Search.."><i style="position: relative; float: right; padding-top: 5px; padding-right: 5px;" class="fa-solid fa-2x fa-magnifying-glass"></i>
+	  </div>
+<div class="player">
+
+	<!-- Define the section for displaying details -->
+	<div class="details">
+	<div class="now-playing">PLAYING x OF y</div>
+	<div class="track-art"></div>
+	<div class="track-name">Track Name</div>
+	<div class="track-artist">Track Artist</div>
+	</div>
+
+	<!-- Define the section for displaying track buttons -->
+	<div class="buttons">
+	<div class="prev-track" onclick="prevTrack()">
+		<i class="fa fa-step-backward fa-2x"></i>
+	</div>
+	<div class="playpause-track" onclick="playpauseTrack()">
+		<i class="fa fa-play-circle fa-5x"></i>
+	</div>
+	<div class="next-track" onclick="nextTrack()">
+		<i class="fa fa-step-forward fa-2x"></i>
+	</div>
+	</div>
+
+	<!-- Define the section for displaying the seek slider-->
+	<div class="slider_container">
+	<div class="current-time">00:00</div>
+	<input type="range" min="1" max="100"
+		value="0" class="seek_slider" onchange="seekTo()">
+	<div class="total-duration">00:00</div>
+	</div>
+
+	<!-- Define the section for displaying the volume slider-->
+	<div class="slider_container">
+	<i class="fa fa-volume-down"></i>
+	<input type="range" min="1" max="100"
+		value="99" class="volume_slider" onchange="setVolume()">
+	<i class="fa fa-volume-up"></i>
+	</div>
+</div>
+
+    <!-- Define the section for various options -->
+    <div class="options">
+        <span>
+            <button type="button" class="btn btn-secondary btn-sm"><i class="fa-sharp fa-solid fa-share"></i>&nbsp;<b>Share</b></button>
+            <button type="button" class="btn btn-secondary btn-sm"><i class="fa-solid fa-download"></i>&nbsp;<b>Download</b></button>
+            <button type="button" class="btn btn-secondary btn-sm"><i class="fa-solid fa-plus"></i>&nbsp;<b>Add to queue</b></button>
+        </span>
+    </div>
+
+<!-- Load the main script for the player -->
+<script src="musicpg.js"></script>
+</body>
+</html>
